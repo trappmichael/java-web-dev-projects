@@ -1,19 +1,20 @@
 package org.launchcode;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 public class MenuItem {
     private String description;
     private double price;
     private String category;
-    private Date dateAdded;
+    private LocalDate dateAdded;
     private boolean isNew;
 
-    public MenuItem(String description, double price, String category, Date dateAdded) {
+    public MenuItem(String description, double price, String category) {
         this.description = description;
         this.price = price;
         this.category = category;
-        this.dateAdded = dateAdded;
+        this.dateAdded = LocalDate.now();
+        this.isNew = true;
     }
 
     public String getDescription() {
@@ -40,19 +41,30 @@ public class MenuItem {
         this.category = category;
     }
 
-    public Date getDateAdded() {
+    public LocalDate getDateAdded() {
         return dateAdded;
     }
 
-    public void setDateAdded(Date dateAdded) {
+    public void setDateAdded(LocalDate dateAdded) {
         this.dateAdded = dateAdded;
     }
 
-    public String getIsNew() {
+    public boolean getIsNew() {
         return isNew;
     }
 
-    public void setIsNew(String isNew) {
+    public void setIsNew(boolean isNew) {
         this.isNew = isNew;
+    }
+
+    @Override
+    public String toString() {
+        return "MenuItem{" +
+                "description='" + description + '\'' +
+                ", price=" + price +
+                ", category='" + category + '\'' +
+                ", dateAdded='" + dateAdded + '\'' +
+                ", isNew=" + isNew +
+                '}';
     }
 }
