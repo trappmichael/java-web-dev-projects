@@ -15,7 +15,7 @@ public class Main {
         studentFiles.put("Stefanie", "CoolProgram.java");
 
         for (Map.Entry<String, String> student : studentFiles.entrySet()) {
-            System.out.println(student.getKey() + ":" + CheckFileExtension(student.getValue()));
+            System.out.println(student.getKey() + ": " + CheckFileExtension(student.getValue()));
         }
     }
 
@@ -40,13 +40,11 @@ public class Main {
             } catch (FileTypeException e) {
                 e.printStackTrace();
             }
-        }
 
-        int fileNameLength = fileName.length();
-        int fileNameFifthToLast = fileName.length()-5;
-        String fileNameSuffix = fileName.substring(fileNameFifthToLast,fileNameLength);
-
-        if (fileNameSuffix.equals(".java")) {
+            return -1;
+        } else if (fileName.length() < 5) {
+            return 0;
+        } else if (fileName.substring(fileName.length() - 5).equals(".java")) {
             return 1;
         }
 
